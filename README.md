@@ -1,2 +1,2 @@
 # c_sandbox
-C potentially useful functions
+Potentially useful C functions
