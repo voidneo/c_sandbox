@@ -168,9 +168,29 @@ int setValue(Vec* vec, void* ptrToValue, size_t pos) {
 /* Remove @noOfElements from the vector starting at element @index */
 int removeValues(Vec* vec, size_t index, size_t noOfElements) {
 
-    // Update the number of elements
-    vec->elementsInBuffer -= noOfElements;
-    return 1;
+    void* success = 0;
+
+    // If we need to do not reach the end of vector with our deletion
+    if(index + noOfElements - 1 < vec->elementsInBuffer) {
+        // Number of the remaining elements after the ones to be deleted
+        size_t trailingSubArrayLength = vec->elementsInBuffer - index - noOfElements;
+        // Index of the first element after the last one to be deleted
+        size_t subArrayFirstElement = index + noOfElements;
+        // Address to first element to be deleted
+        void* destination = &vec->buffer[index                 * vec->dataTypeSize];
+        // Address to first element after the set of elements to be deleted
+        void* source      = &vec->buffer[subArrayFirstElementa * vec->dataTypeSize];
+        // Write remaining elements over the ones to be deleted
+        success = memcpy(destination, source, trailingSubArrayLength * vec->dataTypeSize);
+    }
+
+    
+    if(succes) {
+        // Update the number of elements
+        vec->elementsInBuffer -= noOfElements;
+        return 1;
+    }
+    return 0;
 }
 
 int removeValue(Vec* vec, size_t index) {

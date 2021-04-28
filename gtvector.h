@@ -25,6 +25,6 @@ int removeValues(Vec* vec, size_t index, size_t noOfElements);
 int removeValue(Vec* vec, size_t index);
 int removeFront(Vec* vec);
 int removeBack(Vec* vec);
-// TODO: _moveBlockOfElements, resize, sort, reverseOrder, shrink to fit
+// TODO: resize, sort, reverseOrder, shrink to fit
 
 #endif // GTVECTOR_H_INCLUDED
