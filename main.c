@@ -6,14 +6,14 @@ int main() {
     Vec v = createVector(sizeof(size_t));
     size_t p = 0;
 
-    for(size_t i = 0; i < len; i++) {
+    for(size_t i = 0; i < 16; i++) {
         addBack(&v, &i);
     }
 
-    //removeFront(&vec);
-    //removeBack(&vec);
-    //removeValue(&vec, 3);
-    removeValues(&vec, 3, 2);
+    //removeFront(&v);
+    //removeBack(&v);
+    //removeValue(&v, 3);
+    //removeValues(&v, 3, 2);
 
     for(size_t i = 0; i < v.elementsInBuffer; i++) {
         getValue(&v, i, &p);

@@ -177,15 +177,15 @@ int removeValues(Vec* vec, size_t index, size_t noOfElements) {
         // Index of the first element after the last one to be deleted
         size_t subArrayFirstElement = index + noOfElements;
         // Address to first element to be deleted
-        void* destination = &vec->buffer[index                 * vec->dataTypeSize];
+        void* destination = &vec->buffer[index                * vec->dataTypeSize];
         // Address to first element after the set of elements to be deleted
-        void* source      = &vec->buffer[subArrayFirstElementa * vec->dataTypeSize];
+        void* source      = &vec->buffer[subArrayFirstElement * vec->dataTypeSize];
         // Write remaining elements over the ones to be deleted
         success = memcpy(destination, source, trailingSubArrayLength * vec->dataTypeSize);
     }
 
-    
-    if(succes) {
+
+    if(success) {
         // Update the number of elements
         vec->elementsInBuffer -= noOfElements;
         return 1;
